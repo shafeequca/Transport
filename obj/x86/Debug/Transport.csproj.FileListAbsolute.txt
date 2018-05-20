@@ -1,0 +1,12 @@
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Transport.exe.config
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Transport.exe
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Transport.pdb
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.DriverRegistration.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.PartyRegistration.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.TripEntry.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.VehicleRegistration.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.Properties.Resources.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.csproj.GenerateResource.Cache
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.exe
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.pdb
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.csprojResolveAssemblyReference.cache
