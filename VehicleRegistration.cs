@@ -44,7 +44,10 @@ namespace Transport
 
             }
             catch (Exception ex)
-            { }
+            {
+               // MessageBox.Show(ex.Message);
+            
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)

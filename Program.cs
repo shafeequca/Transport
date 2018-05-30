@@ -15,7 +15,7 @@ namespace Transport
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TripEntry());
+            Application.Run(new Menu());
         }
     }
 }

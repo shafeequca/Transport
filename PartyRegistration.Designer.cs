@@ -155,9 +155,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(15, 179);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
+            this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 50;
-            this.label2.Text = "Location";
+            this.label2.Text = "Destination";
             // 
             // label1
             // 
@@ -424,6 +424,7 @@
             this.Controls.Add(this.label14);
             this.Name = "PartyRegistration";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Party Registration";
             this.Load += new System.EventHandler(this.PartyRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

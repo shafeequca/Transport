@@ -199,6 +199,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DriverRegistration";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Driver Registration";
             this.Load += new System.EventHandler(this.DriverRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
