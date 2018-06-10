@@ -145,5 +145,10 @@ namespace Transport
             catch (Exception ex)
             { }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

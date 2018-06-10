@@ -191,5 +191,19 @@ namespace Transport
             frm.ShowDialog();
              
         }
+
+        private void dieselEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Form> openForms = new List<Form>();
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "DieselExpense")
+                    f.Close();
+            }
+            DieselExpense frm = new DieselExpense();
+            frm.ShowDialog();
+        }
     }
 }

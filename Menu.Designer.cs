@@ -52,6 +52,8 @@
             this.tripEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bataReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.dieselEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -216,7 +218,9 @@
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tripEntryToolStripMenuItem});
+            this.tripEntryToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.dieselEntryToolStripMenuItem});
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.transactionsToolStripMenuItem.Text = "Transactions";
@@ -224,7 +228,7 @@
             // tripEntryToolStripMenuItem
             // 
             this.tripEntryToolStripMenuItem.Name = "tripEntryToolStripMenuItem";
-            this.tripEntryToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.tripEntryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.tripEntryToolStripMenuItem.Text = "Trip Entry";
             this.tripEntryToolStripMenuItem.Click += new System.EventHandler(this.tripEntryToolStripMenuItem_Click);
             // 
@@ -239,9 +243,21 @@
             // bataReportToolStripMenuItem
             // 
             this.bataReportToolStripMenuItem.Name = "bataReportToolStripMenuItem";
-            this.bataReportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bataReportToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.bataReportToolStripMenuItem.Text = "Bata Report";
             this.bataReportToolStripMenuItem.Click += new System.EventHandler(this.bataReportToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            // 
+            // dieselEntryToolStripMenuItem
+            // 
+            this.dieselEntryToolStripMenuItem.Name = "dieselEntryToolStripMenuItem";
+            this.dieselEntryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dieselEntryToolStripMenuItem.Text = "Diesel Entry";
+            this.dieselEntryToolStripMenuItem.Click += new System.EventHandler(this.dieselEntryToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -291,5 +307,7 @@
         private System.Windows.Forms.ToolStripMenuItem tripEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bataReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem dieselEntryToolStripMenuItem;
     }
 }

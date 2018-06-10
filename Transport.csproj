@@ -59,6 +59,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DieselExpense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DieselExpense.Designer.cs">
+      <DependentUpon>DieselExpense.cs</DependentUpon>
+    </Compile>
     <Compile Include="DriverBataDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DieselExpense.resx">
+      <DependentUpon>DieselExpense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DriverBataDetails.resx">
       <DependentUpon>DriverBataDetails.cs</DependentUpon>
     </EmbeddedResource>
