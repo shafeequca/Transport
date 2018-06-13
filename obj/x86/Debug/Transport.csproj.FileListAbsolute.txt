@@ -16,3 +16,7 @@ G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.DriverBataDetai
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptDriverBata.rpt
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptDriverBata.cs
 G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.DieselExpense.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.VehicleExpenses.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.ProfitAndLose.resources
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptProfitAndLoss.rpt
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptProfitAndLoss.cs

@@ -28,6 +28,24 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ProfitAndLoss" msprop:Generator_TableClassName="ProfitAndLossDataTable" msprop:Generator_TableVarName="tableProfitAndLoss" msprop:Generator_RowChangedName="ProfitAndLossRowChanged" msprop:Generator_TablePropName="ProfitAndLoss" msprop:Generator_RowDeletingName="ProfitAndLossRowDeleting" msprop:Generator_RowChangingName="ProfitAndLossRowChanging" msprop:Generator_RowEvHandlerName="ProfitAndLossRowChangeEventHandler" msprop:Generator_RowDeletedName="ProfitAndLossRowDeleted" msprop:Generator_RowClassName="ProfitAndLossRow" msprop:Generator_UserTableName="ProfitAndLoss" msprop:Generator_RowEvArgName="ProfitAndLossRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Vehicle" msprop:Generator_ColumnVarNameInTable="columnVehicle" msprop:Generator_ColumnPropNameInRow="Vehicle" msprop:Generator_ColumnPropNameInTable="VehicleColumn" msprop:Generator_UserColumnName="Vehicle" type="xs:string" minOccurs="0" />
+              <xs:element name="DtFrom" msprop:Generator_ColumnVarNameInTable="columnDtFrom" msprop:Generator_ColumnPropNameInRow="DtFrom" msprop:Generator_ColumnPropNameInTable="DtFromColumn" msprop:Generator_UserColumnName="DtFrom" type="xs:string" minOccurs="0" />
+              <xs:element name="DtTo" msprop:Generator_ColumnVarNameInTable="columnDtTo" msprop:Generator_ColumnPropNameInRow="DtTo" msprop:Generator_ColumnPropNameInTable="DtToColumn" msprop:Generator_UserColumnName="DtTo" type="xs:string" minOccurs="0" />
+              <xs:element name="Destination" msprop:Generator_ColumnVarNameInTable="columnDestination" msprop:Generator_ColumnPropNameInRow="Destination" msprop:Generator_ColumnPropNameInTable="DestinationColumn" msprop:Generator_UserColumnName="Destination" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Bata" msprop:Generator_ColumnVarNameInTable="columnBata" msprop:Generator_ColumnPropNameInRow="Bata" msprop:Generator_ColumnPropNameInTable="BataColumn" msprop:Generator_UserColumnName="Bata" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Diesel" msprop:Generator_ColumnVarNameInTable="columnDiesel" msprop:Generator_ColumnPropNameInRow="Diesel" msprop:Generator_ColumnPropNameInTable="DieselColumn" msprop:Generator_UserColumnName="Diesel" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Profit" msprop:Generator_ColumnVarNameInTable="columnProfit" msprop:Generator_ColumnPropNameInRow="Profit" msprop:Generator_ColumnPropNameInTable="ProfitColumn" msprop:Generator_UserColumnName="Profit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Expense" msprop:Generator_ColumnVarNameInTable="columnExpense" msprop:Generator_ColumnPropNameInRow="Expense" msprop:Generator_ColumnPropNameInTable="ExpenseColumn" msprop:Generator_UserColumnName="Expense" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DieselLtr" msprop:Generator_ColumnVarNameInTable="columnDieselLtr" msprop:Generator_ColumnPropNameInRow="DieselLtr" msprop:Generator_ColumnPropNameInTable="DieselLtrColumn" msprop:Generator_UserColumnName="DieselLtr" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
