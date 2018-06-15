@@ -116,10 +116,32 @@ namespace Transport
                     lblBalance.Text = "0.00";
 
                 }
-                Connections.Instance.CloseConnection();
+                dt2.Dispose();
                 cmd2.Dispose();
 
-                lblProfit.Text = (Convert.ToDecimal((lblBalance.Text == "") ? "0.00" : lblBalance.Text.ToString())-Convert.ToDecimal((lblDiesel.Text == "") ? "0.00" : lblDiesel.Text.ToString())).ToString();
+                SqlCommand cmd3 = new SqlCommand("dbo.GetExpenseSummary", Connections.Instance.con);
+                cmd3.CommandType = CommandType.StoredProcedure;
+                cmd3.Parameters.Add("@VehId", SqlDbType.Int).Value = cboVehicle.SelectedValue.ToString();
+                cmd3.Parameters.Add("@DateFrom", SqlDbType.DateTime).Value = dateTimePicker1.Value.ToString();
+                cmd3.Parameters.Add("@DateTo", SqlDbType.DateTime).Value = dateTimePicker2.Value.ToString();
+
+                DataTable dt3 = new DataTable();
+
+                dt3.Load(cmd3.ExecuteReader());
+                if (dt3.Rows.Count > 0)
+                {
+                    lblVehExpense.Text = (dt3.Rows[0][0].ToString() == "") ? "0.00" : dt3.Rows[0][0].ToString();
+                }
+                else
+                {
+                    lblVehExpense.Text = "0.00";
+                }
+
+                cmd3.Dispose();
+                dt3.Dispose();
+                Connections.Instance.CloseConnection();
+
+                lblProfit.Text = (Convert.ToDecimal((lblBalance.Text == "") ? "0.00" : lblBalance.Text.ToString()) - Convert.ToDecimal((lblDiesel.Text == "") ? "0.00" : lblDiesel.Text.ToString()) - Convert.ToDecimal((lblVehExpense.Text == "") ? "0.00" : lblVehExpense.Text.ToString())).ToString();
 
             }
             catch (Exception ex)
@@ -146,7 +168,9 @@ namespace Transport
 
             System.Data.DataColumn DieselLtr = new System.Data.DataColumn("DieselLtr", typeof(System.String));
             DieselLtr.DefaultValue = lblQty.Text;
-            
+
+            System.Data.DataColumn VehExpense = new System.Data.DataColumn("VehExpenses", typeof(System.Decimal));
+            VehExpense.DefaultValue = lblVehExpense.Text;
 
             System.Data.DataColumn DtFrom = new System.Data.DataColumn("DtFrom", typeof(System.String));
             DtFrom.DefaultValue = dateTimePicker1.Value.ToString("dd-MM-yyyy");
@@ -179,6 +203,7 @@ namespace Transport
             dt.Columns.Add(Diesel);
             dt.Columns.Add(Profit);
             dt.Columns.Add(DieselLtr);
+            dt.Columns.Add(VehExpense);
 
             ds.Tables["ProfitAndLoss"].Clear();
             ds.Tables["ProfitAndLoss"].Merge(dt);
@@ -189,6 +214,11 @@ namespace Transport
             cryRpt.Refresh();
             cryRpt.PrintToPrinter(1, true, 0, 0);
             dt.Dispose();
+        }
+
+        private void lblVehExpense_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

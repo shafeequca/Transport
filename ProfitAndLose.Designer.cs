@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPrint = new System.Windows.Forms.Button();
             this.lblBalance = new System.Windows.Forms.Label();
             this.lblExpense = new System.Windows.Forms.Label();
@@ -57,6 +57,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblVehExpense = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -250,8 +253,8 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.MidnightBlue;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -270,7 +273,7 @@
             // 
             this.lblProfit.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfit.ForeColor = System.Drawing.Color.White;
-            this.lblProfit.Location = new System.Drawing.Point(466, 583);
+            this.lblProfit.Location = new System.Drawing.Point(466, 608);
             this.lblProfit.Name = "lblProfit";
             this.lblProfit.Size = new System.Drawing.Size(149, 21);
             this.lblProfit.TabIndex = 130;
@@ -281,7 +284,7 @@
             // 
             this.label10.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(331, 581);
+            this.label10.Location = new System.Drawing.Point(331, 606);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(129, 21);
             this.label10.TabIndex = 129;
@@ -310,7 +313,7 @@
             // 
             this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(331, 604);
+            this.label11.Location = new System.Drawing.Point(331, 629);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(285, 21);
             this.label11.TabIndex = 133;
@@ -356,12 +359,47 @@
             this.label15.TabIndex = 137;
             this.label15.Text = "(-)";
             // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(610, 576);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(27, 21);
+            this.label16.TabIndex = 140;
+            this.label16.Text = "(-)";
+            // 
+            // lblVehExpense
+            // 
+            this.lblVehExpense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVehExpense.ForeColor = System.Drawing.Color.White;
+            this.lblVehExpense.Location = new System.Drawing.Point(464, 575);
+            this.lblVehExpense.Name = "lblVehExpense";
+            this.lblVehExpense.Size = new System.Drawing.Size(149, 21);
+            this.lblVehExpense.TabIndex = 139;
+            this.lblVehExpense.Text = "0.00";
+            this.lblVehExpense.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblVehExpense.Click += new System.EventHandler(this.lblVehExpense_Click);
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(332, 576);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(150, 21);
+            this.label18.TabIndex = 138;
+            this.label18.Text = "Vehicle Expenses";
+            // 
             // ProfitAndLose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(917, 678);
+            this.Controls.Add(this.lblVehExpense);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -431,5 +469,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblVehExpense;
+        private System.Windows.Forms.Label label18;
     }
 }
