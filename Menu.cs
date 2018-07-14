@@ -233,5 +233,48 @@ namespace Transport
             ProfitAndLose frm = new ProfitAndLose();
             frm.ShowDialog();
         }
+
+        private void dieselDetailsVeicleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Form> openForms = new List<Form>();
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "DieselDetails")
+                    f.Close();
+            }
+            DieselDetails frm = new DieselDetails();
+            frm.ShowDialog();
+        }
+
+        private void fixedExpenseEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            List<Form> openForms = new List<Form>();
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "FixedExpenses")
+                    f.Close();
+            }
+            FixedExpenses frm = new FixedExpenses();
+            frm.ShowDialog();
+        }
+
+        private void billGenerationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Form> openForms = new List<Form>();
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "BillGeneration")
+                    f.Close();
+            }
+            BillGeneration frm = new BillGeneration();
+            frm.ShowDialog();
+        }
     }
 }

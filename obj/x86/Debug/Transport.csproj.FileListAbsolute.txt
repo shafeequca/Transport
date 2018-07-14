@@ -20,3 +20,8 @@ G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.VehicleExpenses
 G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.ProfitAndLose.resources
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptProfitAndLoss.rpt
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptProfitAndLoss.cs
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.DieselDetails.resources
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptDieselVeicle.rpt
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptDieselVeicle.cs
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.FixedExpenses.resources
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.BillGeneration.resources

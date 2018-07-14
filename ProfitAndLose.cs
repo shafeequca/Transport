@@ -139,9 +139,43 @@ namespace Transport
 
                 cmd3.Dispose();
                 dt3.Dispose();
+
+                SqlCommand cmd4 = new SqlCommand("dbo.GetFixedExpenceSummary", Connections.Instance.con);
+                cmd4.CommandType = CommandType.StoredProcedure;
+                cmd4.Parameters.Add("@VehId", SqlDbType.Int).Value = cboVehicle.SelectedValue.ToString();
+                cmd4.Parameters.Add("@DateFrom", SqlDbType.DateTime).Value = dateTimePicker1.Value.ToString();
+                cmd4.Parameters.Add("@DateTo", SqlDbType.DateTime).Value = dateTimePicker2.Value.ToString();
+
+                DataTable dt4 = new DataTable();
+
+                dt4.Load(cmd4.ExecuteReader());
+                if (dt4.Rows.Count > 0)
+                {
+                    lblFixedExpense.Text = (dt4.Rows[0][0].ToString() == "") ? "0.00" : dt4.Rows[0][0].ToString();
+
+                    decimal TotExpense = Convert.ToDecimal((dt4.Rows[0][0].ToString() == "") ? "0.00" : dt4.Rows[0][0].ToString());
+                    Int32 cnt = Convert.ToInt32(txtDays.Text);
+                    decimal avg = TotExpense / cnt;
+                    decimal exp = avg * Convert.ToInt32(dataGridView1.RowCount.ToString());
+                    lblAvgExp.Text = "Avg.(" + avg + ")";
+                    lblFixedExpense.Text = exp.ToString();
+
+                    
+                }
+                else
+                {
+                    lblFixedExpense.Text = "0.00";
+                    lblAvgExp.Text = "Avg.(0)";
+                }
+
+
+                cmd4.Dispose();
+                dt4.Dispose();
+
+
                 Connections.Instance.CloseConnection();
 
-                lblProfit.Text = (Convert.ToDecimal((lblBalance.Text == "") ? "0.00" : lblBalance.Text.ToString()) - Convert.ToDecimal((lblDiesel.Text == "") ? "0.00" : lblDiesel.Text.ToString()) - Convert.ToDecimal((lblVehExpense.Text == "") ? "0.00" : lblVehExpense.Text.ToString())).ToString();
+                lblProfit.Text = (Convert.ToDecimal((lblBalance.Text == "") ? "0.00" : lblBalance.Text.ToString()) - Convert.ToDecimal((lblDiesel.Text == "") ? "0.00" : lblDiesel.Text.ToString()) - Convert.ToDecimal((lblVehExpense.Text == "") ? "0.00" : lblVehExpense.Text.ToString()) - Convert.ToDecimal((lblFixedExpense.Text == "") ? "0.00" : lblFixedExpense.Text.ToString())).ToString();
 
             }
             catch (Exception ex)

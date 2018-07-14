@@ -31,7 +31,34 @@ namespace Transport
             cboCleaner.SelectedIndex = -1;
             dateTimePicker1.Value = DateTime.Today;
             GridShow();
+            getCategory();
 
+        }
+        private void getCategory()
+        {
+            try
+            {
+                Connections.Instance.OpenConection();
+                SqlCommand cmd = new SqlCommand("dbo.GetCategory", Connections.Instance.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+
+                dt.Load(cmd.ExecuteReader());
+                cboCategory.DataSource = null;
+                cboCategory.DataSource = dt;
+                cboCategory.DisplayMember = "Category";
+                cboCategory.ValueMember = "CatID";
+
+                if (cboCategory.Items.Count > 1)
+                {
+                    cboCategory.SelectedIndex = 0;
+                }
+               
+                cmd.Dispose();
+               
+            }
+            catch (Exception ex)
+            { }
         }
         private void GridShow()
         {
@@ -65,6 +92,12 @@ namespace Transport
                 dataGridView1.Columns[12].Visible = false;
                 dataGridView1.Columns[13].Visible = false;
                 dataGridView1.Columns[14].HeaderText = "Date";
+                dataGridView1.Columns[15].Visible = false;
+
+                dataGridView1.Columns[16].Visible = false;
+
+                dataGridView1.Columns[17].Visible = false;
+
 
 
             }
@@ -258,6 +291,9 @@ namespace Transport
             lbltripId.Text = "";
             lblPartyID.Text = "";
             dataGridView2.Visible = false;
+            cboCategory.SelectedIndex = 0;
+            txtCont1.Text = "";
+            txtCont2.Text = "";
 
         }
 
@@ -362,6 +398,9 @@ namespace Transport
                     cmd.Parameters.Add("@Expense", SqlDbType.Decimal).Value = (txtExpence.Text == "") ? "0" : txtExpence.Text;
 
                     cmd.Parameters.Add("@TripDate", SqlDbType.DateTime).Value = dateTimePicker1.Value;
+                    cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = cboCategory.Text;
+                    cmd.Parameters.Add("@Cont1", SqlDbType.VarChar).Value = txtCont1.Text;
+                    cmd.Parameters.Add("@Cont2", SqlDbType.VarChar).Value = txtCont2.Text;
 
 
                     if (lbltripId.Text != "")
@@ -407,8 +446,22 @@ namespace Transport
                     txtAdvance.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
                     txtExpence.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
                     dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString());
+                    if (dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString() == "")
+                    {
+                        cboCategory.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        cboCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+
+                    }
+                    
+                    txtCont1.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
+                    txtCont2.Text = dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString();
+                    
                     txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     cboType.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
                     dataGridView2.Visible = false;
 
                 }

@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillGeneration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillGeneration.Designer.cs">
+      <DependentUpon>BillGeneration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connections.cs" />
     <Compile Include="DataSet\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -62,6 +68,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DieselDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DieselDetails.Designer.cs">
+      <DependentUpon>DieselDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="DieselExpense.cs">
       <SubType>Form</SubType>
@@ -80,6 +92,12 @@
     </Compile>
     <Compile Include="DriverRegistration.Designer.cs">
       <DependentUpon>DriverRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FixedExpenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FixedExpenses.Designer.cs">
+      <DependentUpon>FixedExpenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -104,6 +122,13 @@
     </Compile>
     <Compile Include="ProfitAndLose.Designer.cs">
       <DependentUpon>ProfitAndLose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptDieselVeicle.cs">
+      <DependentUpon>rptDieselVeicle.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports\rptProfitAndLoss.cs">
       <DependentUpon>rptProfitAndLoss.rpt</DependentUpon>
@@ -139,6 +164,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BillGeneration.resx">
+      <DependentUpon>BillGeneration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DieselDetails.resx">
+      <DependentUpon>DieselDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DieselExpense.resx">
       <DependentUpon>DieselExpense.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DriverRegistration.resx">
       <DependentUpon>DriverRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FixedExpenses.resx">
+      <DependentUpon>FixedExpenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -159,6 +193,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfitAndLose.resx">
       <DependentUpon>ProfitAndLose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDieselVeicle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDieselVeicle.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptProfitAndLoss.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

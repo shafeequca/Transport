@@ -60,12 +60,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.lblVehExpense = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.lblFixedExpense = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblAvgExp = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtDays = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(777, 16);
+            this.btnPrint.Location = new System.Drawing.Point(891, 16);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 128;
@@ -110,7 +116,7 @@
             // 
             this.lblDiesel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiesel.ForeColor = System.Drawing.Color.White;
-            this.lblDiesel.Location = new System.Drawing.Point(464, 542);
+            this.lblDiesel.Location = new System.Drawing.Point(507, 544);
             this.lblDiesel.Name = "lblDiesel";
             this.lblDiesel.Size = new System.Drawing.Size(149, 21);
             this.lblDiesel.TabIndex = 124;
@@ -190,7 +196,7 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(696, 16);
+            this.btnShow.Location = new System.Drawing.Point(810, 16);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(75, 23);
             this.btnShow.TabIndex = 116;
@@ -201,9 +207,9 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(550, 17);
+            this.dateTimePicker2.Location = new System.Drawing.Point(485, 17);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(136, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(91, 20);
             this.dateTimePicker2.TabIndex = 115;
             // 
             // dateTimePicker1
@@ -211,7 +217,7 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(390, 17);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(136, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(92, 20);
             this.dateTimePicker1.TabIndex = 112;
             // 
             // cboVehicle
@@ -240,7 +246,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(264, 20);
+            this.label7.Location = new System.Drawing.Point(264, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 16);
             this.label7.TabIndex = 113;
@@ -266,14 +272,14 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(840, 437);
+            this.dataGridView1.Size = new System.Drawing.Size(954, 437);
             this.dataGridView1.TabIndex = 110;
             // 
             // lblProfit
             // 
             this.lblProfit.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfit.ForeColor = System.Drawing.Color.White;
-            this.lblProfit.Location = new System.Drawing.Point(466, 608);
+            this.lblProfit.Location = new System.Drawing.Point(509, 644);
             this.lblProfit.Name = "lblProfit";
             this.lblProfit.Size = new System.Drawing.Size(149, 21);
             this.lblProfit.TabIndex = 130;
@@ -284,7 +290,7 @@
             // 
             this.label10.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(331, 606);
+            this.label10.Location = new System.Drawing.Point(331, 640);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(129, 21);
             this.label10.TabIndex = 129;
@@ -294,7 +300,7 @@
             // 
             this.lblQty.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.lblQty.Location = new System.Drawing.Point(635, 543);
+            this.lblQty.Location = new System.Drawing.Point(677, 545);
             this.lblQty.Name = "lblQty";
             this.lblQty.Size = new System.Drawing.Size(129, 21);
             this.lblQty.TabIndex = 131;
@@ -313,11 +319,11 @@
             // 
             this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(331, 629);
+            this.label11.Location = new System.Drawing.Point(331, 663);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(285, 21);
+            this.label11.Size = new System.Drawing.Size(338, 21);
             this.label11.TabIndex = 133;
-            this.label11.Text = "==========================================================";
+            this.label11.Text = "============================================================";
             // 
             // label12
             // 
@@ -353,7 +359,7 @@
             // 
             this.label15.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(609, 542);
+            this.label15.Location = new System.Drawing.Point(652, 544);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(27, 21);
             this.label15.TabIndex = 137;
@@ -363,7 +369,7 @@
             // 
             this.label16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(610, 576);
+            this.label16.Location = new System.Drawing.Point(653, 579);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(27, 21);
             this.label16.TabIndex = 140;
@@ -373,7 +379,7 @@
             // 
             this.lblVehExpense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVehExpense.ForeColor = System.Drawing.Color.White;
-            this.lblVehExpense.Location = new System.Drawing.Point(464, 575);
+            this.lblVehExpense.Location = new System.Drawing.Point(507, 578);
             this.lblVehExpense.Name = "lblVehExpense";
             this.lblVehExpense.Size = new System.Drawing.Size(149, 21);
             this.lblVehExpense.TabIndex = 139;
@@ -385,18 +391,83 @@
             // 
             this.label18.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(332, 576);
+            this.label18.Location = new System.Drawing.Point(332, 577);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(150, 21);
             this.label18.TabIndex = 138;
             this.label18.Text = "Vehicle Expenses";
+            // 
+            // lblFixedExpense
+            // 
+            this.lblFixedExpense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFixedExpense.ForeColor = System.Drawing.Color.White;
+            this.lblFixedExpense.Location = new System.Drawing.Point(507, 610);
+            this.lblFixedExpense.Name = "lblFixedExpense";
+            this.lblFixedExpense.Size = new System.Drawing.Size(149, 21);
+            this.lblFixedExpense.TabIndex = 142;
+            this.lblFixedExpense.Text = "0.00";
+            this.lblFixedExpense.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(653, 611);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(27, 21);
+            this.label19.TabIndex = 143;
+            this.label19.Text = "(-)";
+            // 
+            // label20
+            // 
+            this.label20.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(332, 609);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(194, 23);
+            this.label20.TabIndex = 141;
+            this.label20.Text = "Vehicle Fixed Expenses";
+            // 
+            // lblAvgExp
+            // 
+            this.lblAvgExp.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.lblAvgExp.Location = new System.Drawing.Point(677, 611);
+            this.lblAvgExp.Name = "lblAvgExp";
+            this.lblAvgExp.Size = new System.Drawing.Size(129, 21);
+            this.lblAvgExp.TabIndex = 144;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(582, 21);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(120, 16);
+            this.label17.TabIndex = 145;
+            this.label17.Text = "Fixed Expense Days";
+            // 
+            // txtDays
+            // 
+            this.txtDays.Location = new System.Drawing.Point(705, 18);
+            this.txtDays.Name = "txtDays";
+            this.txtDays.Size = new System.Drawing.Size(100, 20);
+            this.txtDays.TabIndex = 146;
+            this.txtDays.Text = "100";
             // 
             // ProfitAndLose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(917, 678);
+            this.ClientSize = new System.Drawing.Size(985, 678);
+            this.Controls.Add(this.txtDays);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.lblAvgExp);
+            this.Controls.Add(this.lblFixedExpense);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.lblVehExpense);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label18);
@@ -472,5 +543,11 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblVehExpense;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblFixedExpense;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblAvgExp;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtDays;
     }
 }

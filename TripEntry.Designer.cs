@@ -64,6 +64,12 @@
             this.txtCleanerBata = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lbltripId = new System.Windows.Forms.Label();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCont1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtCont2 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -75,9 +81,9 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(8, 354);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 16);
+            this.label7.Size = new System.Drawing.Size(61, 16);
             this.label7.TabIndex = 88;
-            this.label7.Text = "Trip Dates";
+            this.label7.Text = "Trip Date";
             // 
             // txtExpence
             // 
@@ -138,7 +144,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(354, 324);
+            this.dataGridView1.Size = new System.Drawing.Size(354, 388);
             this.dataGridView1.TabIndex = 83;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -147,7 +153,7 @@
             // 
             this.btnClear.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.Black;
-            this.btnClear.Location = new System.Drawing.Point(355, 390);
+            this.btnClear.Location = new System.Drawing.Point(357, 433);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 25);
             this.btnClear.TabIndex = 11;
@@ -159,7 +165,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(271, 390);
+            this.btnDelete.Location = new System.Drawing.Point(273, 433);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 25);
             this.btnDelete.TabIndex = 10;
@@ -171,7 +177,7 @@
             // 
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(185, 390);
+            this.btnSave.Location = new System.Drawing.Point(187, 433);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 25);
             this.btnSave.TabIndex = 9;
@@ -314,7 +320,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(436, 368);
+            this.txtSearch.Location = new System.Drawing.Point(436, 433);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(354, 23);
             this.txtSearch.TabIndex = 103;
@@ -447,12 +453,78 @@
             this.lbltripId.Size = new System.Drawing.Size(70, 16);
             this.lbltripId.TabIndex = 114;
             // 
+            // cboCategory
+            // 
+            this.cboCategory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(297, 351);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(134, 21);
+            this.cboCategory.TabIndex = 115;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(223, 352);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 16);
+            this.label14.TabIndex = 116;
+            this.label14.Text = "Category";
+            // 
+            // txtCont1
+            // 
+            this.txtCont1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCont1.Location = new System.Drawing.Point(84, 388);
+            this.txtCont1.Name = "txtCont1";
+            this.txtCont1.Size = new System.Drawing.Size(134, 23);
+            this.txtCont1.TabIndex = 117;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(8, 391);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(64, 16);
+            this.label15.TabIndex = 118;
+            this.label15.Text = "Cont.No 1";
+            // 
+            // txtCont2
+            // 
+            this.txtCont2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCont2.Location = new System.Drawing.Point(297, 388);
+            this.txtCont2.Name = "txtCont2";
+            this.txtCont2.Size = new System.Drawing.Size(134, 23);
+            this.txtCont2.TabIndex = 119;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(223, 391);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 16);
+            this.label16.TabIndex = 120;
+            this.label16.Text = "Cont.No 2";
+            // 
             // TripEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(802, 436);
+            this.ClientSize = new System.Drawing.Size(802, 470);
+            this.Controls.Add(this.txtCont2);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.txtCont1);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.cboCategory);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.lbltripId);
             this.Controls.Add(this.txtCleanerBata);
             this.Controls.Add(this.label13);
@@ -535,5 +607,11 @@
         private System.Windows.Forms.TextBox txtCleanerBata;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lbltripId;
+        private System.Windows.Forms.ComboBox cboCategory;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtCont1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtCont2;
+        private System.Windows.Forms.Label label16;
     }
 }
