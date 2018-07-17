@@ -36,7 +36,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtInvoice = new System.Windows.Forms.TextBox();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(18, 28);
+            this.label4.Location = new System.Drawing.Point(21, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 16);
             this.label4.TabIndex = 94;
@@ -110,18 +110,18 @@
             this.label1.TabIndex = 119;
             this.label1.Text = "Invoice Number";
             // 
-            // textBox1
+            // txtInvoice
             // 
-            this.textBox1.Location = new System.Drawing.Point(556, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 20);
-            this.textBox1.TabIndex = 120;
+            this.txtInvoice.Location = new System.Drawing.Point(556, 27);
+            this.txtInvoice.Name = "txtInvoice";
+            this.txtInvoice.Size = new System.Drawing.Size(175, 20);
+            this.txtInvoice.TabIndex = 120;
             // 
             // btnShow
             // 
             this.btnShow.Location = new System.Drawing.Point(352, 92);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(95, 25);
+            this.btnShow.Size = new System.Drawing.Size(95, 38);
             this.btnShow.TabIndex = 121;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -135,6 +135,7 @@
             this.btnGenerate.TabIndex = 122;
             this.btnGenerate.Text = "Generate Bill";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // btnPrint
             // 
@@ -144,6 +145,7 @@
             this.btnPrint.TabIndex = 123;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // label2
             // 
@@ -209,6 +211,8 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(273, 369);
             this.dataGridView2.TabIndex = 127;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // txtSearch
             // 
@@ -217,6 +221,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(273, 23);
             this.txtSearch.TabIndex = 128;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cboCategory
             // 
@@ -256,7 +261,7 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.btnShow);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtInvoice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
@@ -283,7 +288,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtInvoice;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Button btnPrint;

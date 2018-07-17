@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CrystalDecisions.CrystalReports.Engine;
+using Transport.DataSet;
 
 namespace Transport
 {
     public partial class BillGeneration : Form
     {
+        DataSet1 ds;
         public BillGeneration()
         {
             InitializeComponent();
@@ -19,7 +22,7 @@ namespace Transport
 
         private void BillGeneration_Load(object sender, EventArgs e)
         {
-
+            ds = new DataSet1();
             GridShow();
             Combo();
 
@@ -98,37 +101,23 @@ namespace Transport
                 Connections.Instance.OpenConection();
                 SqlCommand cmd = new SqlCommand("dbo.GetBillDetails", Connections.Instance.con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@Search", SqlDbType.VarChar).Value = txtSearch.Text;
+                //cmd.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtSearch.Text;
                 DataTable dt = new DataTable();
 
                 dt.Load(cmd.ExecuteReader());
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = dt;
+                dataGridView2.DataSource = null;
+                dataGridView2.DataSource = dt;
                 Connections.Instance.CloseConnection();
                 cmd.Dispose();
-                dataGridView1.Columns[14].Width = 10;
-                dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Party and Location";
-                dataGridView1.Columns[2].HeaderText = "Type";
-                dataGridView1.Columns[2].Width = 10;
-                dataGridView1.Columns[3].Visible = false;
-                dataGridView1.Columns[4].Visible = false;
-                dataGridView1.Columns[5].Visible = false;
-                dataGridView1.Columns[6].Visible = false;
-                dataGridView1.Columns[7].Visible = false;
-                dataGridView1.Columns[8].Visible = false;
-                dataGridView1.Columns[9].Visible = false;
-                dataGridView1.Columns[10].Visible = false;
-                dataGridView1.Columns[11].Visible = false;
-                dataGridView1.Columns[12].Visible = false;
-                dataGridView1.Columns[13].Visible = false;
-                dataGridView1.Columns[14].HeaderText = "Date";
-                dataGridView1.Columns[15].Visible = false;
-
-                dataGridView1.Columns[16].Visible = false;
-
-                dataGridView1.Columns[17].Visible = false;
-
+                dataGridView2.Columns[0].Visible = false;
+                            
+                dataGridView2.Columns[2].Visible = false;
+                            
+                dataGridView2.Columns[3].Visible = false;
+                dataGridView2.Columns[4].Visible = false;
+                dataGridView2.Columns[5].Visible = false;
+                dataGridView2.Columns[6].Visible = false;
+                
 
 
             }
@@ -140,5 +129,202 @@ namespace Transport
         {
             Show();
         }
-    }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            if (txtInvoice.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter the Invoice number");
+                txtInvoice.Focus();
+                return;
+            }
+            try
+            {
+                Connections.Instance.OpenConection();
+                SqlCommand cmd = new SqlCommand("dbo.GetBillDetails", Connections.Instance.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text;
+                DataTable dt = new DataTable();
+
+                dt.Load(cmd.ExecuteReader());
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Invoice number already exits");
+                    txtInvoice.Focus();
+                    return;
+                }
+                cmd.Dispose();
+                dt.Dispose();
+                 DialogResult dialogResult = MessageBox.Show("Do you want to generate the bill?", "Bill Generation", MessageBoxButtons.YesNo);
+                 if (dialogResult == DialogResult.Yes)
+                 {
+                     SqlCommand cmd1 = new SqlCommand("dbo.BillEntry", Connections.Instance.con);
+                     cmd1.CommandType = CommandType.StoredProcedure;
+                     cmd1.Parameters.Add("@PartyId", SqlDbType.Int).Value = cboParty.SelectedValue;
+                     cmd1.Parameters.Add("@Category", SqlDbType.VarChar).Value = cboCategory.Text;
+                     cmd1.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text;
+
+                     cmd1.Parameters.Add("@DateFrom", SqlDbType.DateTime).Value = dateTimePicker1.Value;
+                     cmd1.Parameters.Add("@DateTo", SqlDbType.DateTime).Value = dateTimePicker2.Value;
+
+                     cmd1.Parameters.Add("@BillDate", SqlDbType.DateTime).Value = dateTimePicker3.Value;
+                     cmd1.ExecuteReader();
+                 }
+                DialogResult dialogResult1 = MessageBox.Show("Do you want to print the bill statement?", "Bill Generation", MessageBoxButtons.YesNo);
+                if (dialogResult1 == DialogResult.Yes)
+                {
+                    btnPrint_Click (null,null);
+                }
+            }
+            catch (Exception ex)
+            { }
+
+            GridShow();
+            clear();
+
+        }
+        private void clear()
+
+        {
+            cboCategory.SelectedIndex = 0;
+            dateTimePicker1.Value = DateTime.Today;
+            dateTimePicker2.Value = DateTime.Today;
+            dateTimePicker3.Value = DateTime.Today;
+            cboParty.SelectedIndex = -1;
+            dataGridView1.DataSource = null;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Connections.Instance.OpenConection();
+                SqlCommand cmd = new SqlCommand("dbo.GetBillDetailsSearch", Connections.Instance.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtSearch.Text;
+                DataTable dt = new DataTable();
+
+                dt.Load(cmd.ExecuteReader());
+                dataGridView2.DataSource = null;
+                dataGridView2.DataSource = dt;
+                Connections.Instance.CloseConnection();
+                cmd.Dispose();
+                dataGridView2.Columns[0].Visible = false;
+
+                dataGridView2.Columns[2].Visible = false;
+
+                dataGridView2.Columns[3].Visible = false;
+                dataGridView2.Columns[4].Visible = false;
+                dataGridView2.Columns[5].Visible = false;
+                dataGridView2.Columns[6].Visible = false;
+
+
+
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (txtInvoice.Text.Trim() == "")
+            {
+                MessageBox.Show("Please select a proper bill");
+                txtInvoice.Focus();
+                return;
+            }
+            try
+            {
+                Connections.Instance.OpenConection();
+                SqlCommand cmd = new SqlCommand("dbo.GetBillDetails", Connections.Instance.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text;
+                DataTable dt = new DataTable();
+
+                dt.Load(cmd.ExecuteReader());
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Invoice number does not exits. Please generate bill and try again");
+                    txtInvoice.Focus();
+                    return;
+                }
+            }
+            catch (Exception ex)
+            { }
+            DataTable dt1 = new DataTable();
+
+            try
+            {
+                Connections.Instance.OpenConection();
+                SqlCommand cmd1 = new SqlCommand("dbo.GetBillEntry", Connections.Instance.con);
+                cmd1.CommandType = CommandType.StoredProcedure;
+                cmd1.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text.ToString();
+                dt1.Load(cmd1.ExecuteReader());
+                Connections.Instance.CloseConnection();
+                cmd1.Dispose();
+
+
+            }
+            catch (Exception ex)
+            { }
+
+            ds.Tables["Bill"].Clear();
+            ds.Tables["Bill"].Merge(dt1);
+
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt.Load(System.IO.Path.GetDirectoryName(Application.ExecutablePath).ToString() + @"\Reports\BillStatement.rpt");
+            cryRpt.SetDataSource(ds);
+            cryRpt.Refresh();
+            cryRpt.PrintToPrinter(1, true, 0, 0);
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    txtInvoice.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    dateTimePicker3.Value = Convert.ToDateTime(dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    cboParty.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    cboCategory.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    dateTimePicker1.Value = Convert.ToDateTime(dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString());
+                    dateTimePicker2.Value = Convert.ToDateTime(dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString());
+
+                    try
+                    {
+                        Connections.Instance.OpenConection();
+                        SqlCommand cmd = new SqlCommand("dbo.GetBillEntry", Connections.Instance.con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text.ToString();
+
+                        DataTable dt = new DataTable();
+
+                        dt.Load(cmd.ExecuteReader());
+                        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = dt;
+                        Connections.Instance.CloseConnection();
+                        cmd.Dispose();
+
+                        dataGridView1.Columns[0].Visible = false;
+                        dataGridView1.Columns[1].Visible = false;
+                        dataGridView1.Columns[8].Visible = false;
+                        dataGridView1.Columns[9].Visible = false;
+    
+
+                    }
+                    catch (Exception ex)
+                    { }
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+      }
 }

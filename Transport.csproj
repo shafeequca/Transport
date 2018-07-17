@@ -123,6 +123,13 @@
     <Compile Include="ProfitAndLose.Designer.cs">
       <DependentUpon>ProfitAndLose.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\BillStatement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillStatement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Reports\rptDieselVeicle.cs">
       <DependentUpon>rptDieselVeicle.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -193,6 +200,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfitAndLose.resx">
       <DependentUpon>ProfitAndLose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BillStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BillStatement.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDieselVeicle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
