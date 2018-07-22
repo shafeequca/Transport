@@ -47,6 +47,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.cboVehicle = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -56,9 +58,9 @@
             this.cboParty.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboParty.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboParty.FormattingEnabled = true;
-            this.cboParty.Location = new System.Drawing.Point(146, 27);
+            this.cboParty.Location = new System.Drawing.Point(91, 27);
             this.cboParty.Name = "cboParty";
-            this.cboParty.Size = new System.Drawing.Size(301, 21);
+            this.cboParty.Size = new System.Drawing.Size(327, 21);
             this.cboParty.TabIndex = 93;
             // 
             // label4
@@ -75,7 +77,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(247, 97);
+            this.dateTimePicker2.Location = new System.Drawing.Point(247, 95);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(96, 20);
             this.dateTimePicker2.TabIndex = 118;
@@ -83,7 +85,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(147, 97);
+            this.dateTimePicker1.Location = new System.Drawing.Point(147, 95);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(94, 20);
             this.dateTimePicker1.TabIndex = 116;
@@ -93,7 +95,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(21, 99);
+            this.label7.Location = new System.Drawing.Point(21, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 16);
             this.label7.TabIndex = 117;
@@ -119,9 +121,9 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(352, 92);
+            this.btnShow.Location = new System.Drawing.Point(349, 95);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(95, 38);
+            this.btnShow.Size = new System.Drawing.Size(69, 20);
             this.btnShow.TabIndex = 121;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -229,9 +231,9 @@
             this.cboCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(146, 58);
+            this.cboCategory.Location = new System.Drawing.Point(91, 58);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(301, 21);
+            this.cboCategory.Size = new System.Drawing.Size(129, 21);
             this.cboCategory.TabIndex = 129;
             // 
             // label14
@@ -245,12 +247,35 @@
             this.label14.TabIndex = 130;
             this.label14.Text = "Category";
             // 
+            // cboVehicle
+            // 
+            this.cboVehicle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboVehicle.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboVehicle.FormattingEnabled = true;
+            this.cboVehicle.Location = new System.Drawing.Point(290, 59);
+            this.cboVehicle.Name = "cboVehicle";
+            this.cboVehicle.Size = new System.Drawing.Size(129, 21);
+            this.cboVehicle.TabIndex = 131;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(230, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 16);
+            this.label3.TabIndex = 132;
+            this.label3.Text = "Vehicle";
+            // 
             // BillGeneration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(951, 550);
+            this.Controls.Add(this.cboVehicle);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtSearch);
@@ -299,5 +324,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cboVehicle;
+        private System.Windows.Forms.Label label3;
     }
 }

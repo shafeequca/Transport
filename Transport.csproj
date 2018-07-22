@@ -69,6 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Destination.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Destination.Designer.cs">
+      <DependentUpon>Destination.cs</DependentUpon>
+    </Compile>
     <Compile Include="DieselDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Reports\rptBill1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBill1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Reports\rptDieselVeicle.cs">
       <DependentUpon>rptDieselVeicle.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -174,6 +187,9 @@
     <EmbeddedResource Include="BillGeneration.resx">
       <DependentUpon>BillGeneration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Destination.resx">
+      <DependentUpon>Destination.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DieselDetails.resx">
       <DependentUpon>DieselDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +220,11 @@
     <EmbeddedResource Include="Reports\BillStatement.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BillStatement.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBill1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBill1.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDieselVeicle.rpt">

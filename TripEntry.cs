@@ -26,13 +26,39 @@ namespace Transport
         {
             cboType.SelectedIndex = 0;
             getDriver();
-            cboVehicle.SelectedIndex = -1;
             cboDriver.SelectedIndex = -1;
             cboCleaner.SelectedIndex = -1;
             dateTimePicker1.Value = DateTime.Today;
             GridShow();
             getCategory();
+            getDestination();
+            cboVehicle.SelectedIndex = -1;
+        }
+        private void getDestination()
+        {
+            try
+            {
+                Connections.Instance.OpenConection();
+                SqlCommand cmd = new SqlCommand("dbo.GetDestination", Connections.Instance.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
 
+                dt.Load(cmd.ExecuteReader());
+                cboDestination.DataSource = null;
+                cboDestination.DataSource = dt;
+                cboDestination.DisplayMember = "Destination";
+                cboDestination.ValueMember = "DestId";
+
+                if (cboDestination.Items.Count > 1)
+                {
+                    cboDestination.SelectedIndex = 0;
+                }
+
+                cmd.Dispose();
+
+            }
+            catch (Exception ex)
+            { }
         }
         private void getCategory()
         {
@@ -75,13 +101,11 @@ namespace Transport
                 dataGridView1.DataSource = dt;
                 Connections.Instance.CloseConnection();
                 cmd.Dispose();
-                dataGridView1.Columns[14].Width = 10;
+                //dataGridView1.Columns[14].Width = 10;
                 dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].HeaderText = "Party and Location";
-                dataGridView1.Columns[2].HeaderText = "Type";
-                dataGridView1.Columns[2].Width = 10;
-                dataGridView1.Columns[3].Visible = false;
-                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Party";
+                dataGridView1.Columns[2].Visible = false;
+                dataGridView1.Columns[4].HeaderText = "Type";
                 dataGridView1.Columns[5].Visible = false;
                 dataGridView1.Columns[6].Visible = false;
                 dataGridView1.Columns[7].Visible = false;
@@ -91,13 +115,18 @@ namespace Transport
                 dataGridView1.Columns[11].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
                 dataGridView1.Columns[13].Visible = false;
-                dataGridView1.Columns[14].HeaderText = "Date";
+                dataGridView1.Columns[14].Visible = false;
                 dataGridView1.Columns[15].Visible = false;
 
-                dataGridView1.Columns[16].Visible = false;
+                dataGridView1.Columns[16].HeaderText = "Date";
+                dataGridView1.Columns[16].Width = 30;
+                dataGridView1.Columns[4].Width = 15;
 
                 dataGridView1.Columns[17].Visible = false;
+                dataGridView1.Columns[18].Visible = false;
 
+                dataGridView1.Columns[19].Visible = false;
+                dataGridView1.Columns[20].Visible = false;
 
 
             }
@@ -191,24 +220,12 @@ namespace Transport
             if (e.RowIndex >= 0)
             {
                 lblPartyID.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtAddress.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtContactNumber.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                if (cboType.Text == "20 FT")
-                {
-                    txtTripRate.Text = dataGridView2.Rows[e.RowIndex].Cells[11].Value.ToString();
-                    txtDriverBata.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    txtCleanerBata.Text = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
-
-                }
-                else
-                {
-                    txtTripRate.Text = dataGridView2.Rows[e.RowIndex].Cells[12].Value.ToString();
-                    txtDriverBata.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    txtCleanerBata.Text = dataGridView2.Rows[e.RowIndex].Cells[10].Value.ToString();
-
-                }
+                txtAddress.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtContactNumber.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                
                 txtName.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
                 dataGridView2.Visible = false;
+                cboType_SelectedIndexChanged(null, null);
                 cboVehicle.Focus();
 
             }
@@ -240,9 +257,9 @@ namespace Transport
                 {
                     cboVehicle.SelectedIndex = 0;
                 }
-                if (lblPartyID.Text != "")
+                if (cboDestination.SelectedIndex!=-1)
                 {
-                    string query = "SELECT DriverBata20,DriverBata40,CleanerBata20,CleanerBata40,Rate20,Rate40 FROM tblParty WHERE PartyId='" + lblPartyID.Text + "'";
+                    string query = "SELECT DriverBata20,DriverBata40,CleanerBata20,CleanerBata40,Rate20,Rate40 FROM tblDestination WHERE DestId='" + cboDestination.SelectedValue + "'";
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = query;
                     DataTable dt1 = new DataTable();
@@ -264,6 +281,7 @@ namespace Transport
                 }
                 Connections.Instance.CloseConnection();
                 cmd.Dispose();
+                cboVehicle.SelectedIndex = -1;
 
             }
             catch (Exception ex)
@@ -289,11 +307,13 @@ namespace Transport
             txtTripRate.Text = "";
             txtName.Text = "";
             lbltripId.Text = "";
+            txtHalting.Text = "";
             lblPartyID.Text = "";
             dataGridView2.Visible = false;
             cboCategory.SelectedIndex = 0;
             txtCont1.Text = "";
             txtCont2.Text = "";
+            cboDestination.SelectedIndex = -1;
 
         }
 
@@ -401,7 +421,10 @@ namespace Transport
                     cmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = cboCategory.Text;
                     cmd.Parameters.Add("@Cont1", SqlDbType.VarChar).Value = txtCont1.Text;
                     cmd.Parameters.Add("@Cont2", SqlDbType.VarChar).Value = txtCont2.Text;
-
+                    cmd.Parameters.Add("@DestId", SqlDbType.Int).Value = cboDestination.SelectedValue.ToString();
+                    cmd.Parameters.Add("@HaltingCharge", SqlDbType.Decimal).Value = txtHalting.Text.ToString();
+                    
+                    
 
                     if (lbltripId.Text != "")
                     {
@@ -432,35 +455,39 @@ namespace Transport
                 if (e.RowIndex >= 0)
                 {
                     lbltripId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    txtContactNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    cboVehicle.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    
+                    cboDestination.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    cboType.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    
+                    txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    txtContactNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    cboVehicle.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-                    lblPartyID.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    lblPartyID.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
 
-                    txtTripRate.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    cboDriver.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    cboCleaner.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-                    txtDriverBata.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
-                    txtCleanerBata.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
-                    txtAdvance.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
-                    txtExpence.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
-                    dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString());
-                    if (dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString() == "")
+                    txtTripRate.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+                    cboDriver.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    cboCleaner.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                    txtDriverBata.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
+                    txtCleanerBata.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
+                    txtAdvance.Text = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
+                    txtExpence.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+                    dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString());
+                    if (dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString() == "")
                     {
                         cboCategory.SelectedIndex = 0;
                     }
                     else
                     {
-                        cboCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+                        cboCategory.Text = dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString();
 
                     }
                     
-                    txtCont1.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
-                    txtCont2.Text = dataGridView1.Rows[e.RowIndex].Cells[17].Value.ToString();
+                    txtCont1.Text = dataGridView1.Rows[e.RowIndex].Cells[18].Value.ToString();
+                    txtCont2.Text = dataGridView1.Rows[e.RowIndex].Cells[19].Value.ToString();
+                    txtHalting.Text = dataGridView1.Rows[e.RowIndex].Cells[20].Value.ToString();
                     
                     txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    cboType.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
                     dataGridView2.Visible = false;
 
@@ -471,6 +498,11 @@ namespace Transport
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cboVehicle_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

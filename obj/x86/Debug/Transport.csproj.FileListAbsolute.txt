@@ -27,3 +27,6 @@ G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.FixedExpenses.r
 G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.BillGeneration.resources
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\BillStatement.rpt
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\BillStatement.cs
+G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.Destination.resources
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptBill1.rpt
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptBill1.cs
