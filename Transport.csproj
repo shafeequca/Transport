@@ -99,6 +99,12 @@
     <Compile Include="DriverRegistration.Designer.cs">
       <DependentUpon>DriverRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="FixedContainerBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FixedContainerBill.Designer.cs">
+      <DependentUpon>FixedContainerBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="FixedExpenses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptFixedBill.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptFixedBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Reports\rptProfitAndLoss.cs">
       <DependentUpon>rptProfitAndLoss.rpt</DependentUpon>
@@ -202,6 +215,9 @@
     <EmbeddedResource Include="DriverRegistration.resx">
       <DependentUpon>DriverRegistration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FixedContainerBill.resx">
+      <DependentUpon>FixedContainerBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FixedExpenses.resx">
       <DependentUpon>FixedExpenses.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +246,11 @@
     <EmbeddedResource Include="Reports\rptDieselVeicle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDieselVeicle.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptFixedBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptFixedBill.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptProfitAndLoss.rpt">

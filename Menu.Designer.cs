@@ -48,6 +48,7 @@
             this.driverRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.partyDestinationRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.destinationEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tripEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,7 +61,7 @@
             this.bataReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profitLossToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dieselDetailsVeicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.destinationEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fixedContainersBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -223,6 +224,13 @@
             this.partyDestinationRegisterToolStripMenuItem.Text = "Party Register";
             this.partyDestinationRegisterToolStripMenuItem.Click += new System.EventHandler(this.partyDestinationRegisterToolStripMenuItem_Click);
             // 
+            // destinationEntryToolStripMenuItem
+            // 
+            this.destinationEntryToolStripMenuItem.Name = "destinationEntryToolStripMenuItem";
+            this.destinationEntryToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.destinationEntryToolStripMenuItem.Text = "Destination Entry";
+            this.destinationEntryToolStripMenuItem.Click += new System.EventHandler(this.destinationEntryToolStripMenuItem_Click);
+            // 
             // transactionsToolStripMenuItem
             // 
             this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -232,7 +240,8 @@
             this.expenseEntryToolStripMenuItem,
             this.fixedExpenseEntryToolStripMenuItem,
             this.toolStripMenuItem4,
-            this.billGenerationToolStripMenuItem});
+            this.billGenerationToolStripMenuItem,
+            this.fixedContainersBillToolStripMenuItem});
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.transactionsToolStripMenuItem.Text = "Transactions";
@@ -240,45 +249,45 @@
             // tripEntryToolStripMenuItem
             // 
             this.tripEntryToolStripMenuItem.Name = "tripEntryToolStripMenuItem";
-            this.tripEntryToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.tripEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tripEntryToolStripMenuItem.Text = "Trip Entry";
             this.tripEntryToolStripMenuItem.Click += new System.EventHandler(this.tripEntryToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(173, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // dieselEntryToolStripMenuItem
             // 
             this.dieselEntryToolStripMenuItem.Name = "dieselEntryToolStripMenuItem";
-            this.dieselEntryToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.dieselEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dieselEntryToolStripMenuItem.Text = "Diesel Entry";
             this.dieselEntryToolStripMenuItem.Click += new System.EventHandler(this.dieselEntryToolStripMenuItem_Click);
             // 
             // expenseEntryToolStripMenuItem
             // 
             this.expenseEntryToolStripMenuItem.Name = "expenseEntryToolStripMenuItem";
-            this.expenseEntryToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.expenseEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.expenseEntryToolStripMenuItem.Text = "Expense Entry";
             this.expenseEntryToolStripMenuItem.Click += new System.EventHandler(this.expenseEntryToolStripMenuItem_Click);
             // 
             // fixedExpenseEntryToolStripMenuItem
             // 
             this.fixedExpenseEntryToolStripMenuItem.Name = "fixedExpenseEntryToolStripMenuItem";
-            this.fixedExpenseEntryToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.fixedExpenseEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fixedExpenseEntryToolStripMenuItem.Text = "Fixed Expense Entry";
             this.fixedExpenseEntryToolStripMenuItem.Click += new System.EventHandler(this.fixedExpenseEntryToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(173, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
             // 
             // billGenerationToolStripMenuItem
             // 
             this.billGenerationToolStripMenuItem.Name = "billGenerationToolStripMenuItem";
-            this.billGenerationToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.billGenerationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.billGenerationToolStripMenuItem.Text = "Bill Generation";
             this.billGenerationToolStripMenuItem.Click += new System.EventHandler(this.billGenerationToolStripMenuItem_Click);
             // 
@@ -313,12 +322,12 @@
             this.dieselDetailsVeicleToolStripMenuItem.Text = "Diesel Details (Veicle)";
             this.dieselDetailsVeicleToolStripMenuItem.Click += new System.EventHandler(this.dieselDetailsVeicleToolStripMenuItem_Click);
             // 
-            // destinationEntryToolStripMenuItem
+            // fixedContainersBillToolStripMenuItem
             // 
-            this.destinationEntryToolStripMenuItem.Name = "destinationEntryToolStripMenuItem";
-            this.destinationEntryToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.destinationEntryToolStripMenuItem.Text = "Destination Entry";
-            this.destinationEntryToolStripMenuItem.Click += new System.EventHandler(this.destinationEntryToolStripMenuItem_Click);
+            this.fixedContainersBillToolStripMenuItem.Name = "fixedContainersBillToolStripMenuItem";
+            this.fixedContainersBillToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fixedContainersBillToolStripMenuItem.Text = "Fixed Containers Bill";
+            this.fixedContainersBillToolStripMenuItem.Click += new System.EventHandler(this.fixedContainersBillToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -377,5 +386,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem billGenerationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem destinationEntryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fixedContainersBillToolStripMenuItem;
     }
 }
