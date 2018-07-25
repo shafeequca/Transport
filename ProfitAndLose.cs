@@ -206,6 +206,9 @@ namespace Transport
             System.Data.DataColumn VehExpense = new System.Data.DataColumn("VehExpenses", typeof(System.Decimal));
             VehExpense.DefaultValue = lblVehExpense.Text;
 
+            System.Data.DataColumn FixedExpense = new System.Data.DataColumn("FixedExpense", typeof(System.Decimal));
+            FixedExpense.DefaultValue = lblFixedExpense.Text;
+
             System.Data.DataColumn DtFrom = new System.Data.DataColumn("DtFrom", typeof(System.String));
             DtFrom.DefaultValue = dateTimePicker1.Value.ToString("dd-MM-yyyy");
             System.Data.DataColumn DtTo = new System.Data.DataColumn("DtTo", typeof(System.String));
@@ -238,6 +241,7 @@ namespace Transport
             dt.Columns.Add(Profit);
             dt.Columns.Add(DieselLtr);
             dt.Columns.Add(VehExpense);
+            dt.Columns.Add(FixedExpense);
 
             ds.Tables["ProfitAndLoss"].Clear();
             ds.Tables["ProfitAndLoss"].Merge(dt);

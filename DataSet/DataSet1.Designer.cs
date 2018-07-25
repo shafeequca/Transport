@@ -853,6 +853,8 @@ namespace Transport.DataSet {
             
             private global::System.Data.DataColumn columnVehExpenses;
             
+            private global::System.Data.DataColumn columnFixedExpense;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProfitAndLossDataTable() {
@@ -992,6 +994,14 @@ namespace Transport.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FixedExpenseColumn {
+                get {
+                    return this.columnFixedExpense;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1027,7 +1037,7 @@ namespace Transport.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProfitAndLossRow AddProfitAndLossRow(string Vehicle, string DtFrom, string DtTo, string Destination, string Date, decimal Rate, decimal Bata, decimal Balance, decimal Diesel, decimal Profit, decimal Expense, string DieselLtr, decimal VehExpenses) {
+            public ProfitAndLossRow AddProfitAndLossRow(string Vehicle, string DtFrom, string DtTo, string Destination, string Date, decimal Rate, decimal Bata, decimal Balance, decimal Diesel, decimal Profit, decimal Expense, string DieselLtr, decimal VehExpenses, decimal FixedExpense) {
                 ProfitAndLossRow rowProfitAndLossRow = ((ProfitAndLossRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Vehicle,
@@ -1042,7 +1052,8 @@ namespace Transport.DataSet {
                         Profit,
                         Expense,
                         DieselLtr,
-                        VehExpenses};
+                        VehExpenses,
+                        FixedExpense};
                 rowProfitAndLossRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProfitAndLossRow);
                 return rowProfitAndLossRow;
@@ -1078,6 +1089,7 @@ namespace Transport.DataSet {
                 this.columnExpense = base.Columns["Expense"];
                 this.columnDieselLtr = base.Columns["DieselLtr"];
                 this.columnVehExpenses = base.Columns["VehExpenses"];
+                this.columnFixedExpense = base.Columns["FixedExpense"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1109,6 +1121,8 @@ namespace Transport.DataSet {
                 base.Columns.Add(this.columnDieselLtr);
                 this.columnVehExpenses = new global::System.Data.DataColumn("VehExpenses", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVehExpenses);
+                this.columnFixedExpense = new global::System.Data.DataColumn("FixedExpense", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFixedExpense);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3260,6 +3274,22 @@ namespace Transport.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal FixedExpense {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableProfitAndLoss.FixedExpenseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FixedExpense\' in table \'ProfitAndLoss\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProfitAndLoss.FixedExpenseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsVehicleNull() {
                 return this.IsNull(this.tableProfitAndLoss.VehicleColumn);
             }
@@ -3412,6 +3442,18 @@ namespace Transport.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetVehExpensesNull() {
                 this[this.tableProfitAndLoss.VehExpensesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFixedExpenseNull() {
+                return this.IsNull(this.tableProfitAndLoss.FixedExpenseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFixedExpenseNull() {
+                this[this.tableProfitAndLoss.FixedExpenseColumn] = global::System.Convert.DBNull;
             }
         }
         
