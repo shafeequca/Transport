@@ -272,58 +272,67 @@ namespace Transport
             catch (Exception ex)
             { }
 
-            DataTable dt2 = new DataTable();
-
-            try
+            DialogResult dialogResult = MessageBox.Show("Do you want to print the bill?", "Bill Generation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                Connections.Instance.OpenConection();
-                SqlCommand cmd2 = new SqlCommand("dbo.GetBill", Connections.Instance.con);
-                cmd2.CommandType = CommandType.StoredProcedure;
-                cmd2.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text.ToString();
-                dt2.Load(cmd2.ExecuteReader());
-                Connections.Instance.CloseConnection();
-                cmd2.Dispose();
+                DataTable dt2 = new DataTable();
 
+                try
+                {
+                    Connections.Instance.OpenConection();
+                    SqlCommand cmd2 = new SqlCommand("dbo.GetBill", Connections.Instance.con);
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text.ToString();
+                    dt2.Load(cmd2.ExecuteReader());
+                    Connections.Instance.CloseConnection();
+                    cmd2.Dispose();
+
+
+                }
+                catch (Exception ex)
+                { }
+
+                ds.Tables["Bill1"].Clear();
+                ds.Tables["Bill1"].Merge(dt2);
+
+                ReportDocument cryRpt = new ReportDocument();
+                cryRpt.Load(System.IO.Path.GetDirectoryName(Application.ExecutablePath).ToString() + @"\Reports\rptBill.rpt");
+                cryRpt.SetDataSource(ds);
+                cryRpt.Refresh();
+                cryRpt.PrintToPrinter(1, true, 0, 0);
 
             }
-            catch (Exception ex)
-            { }
 
-            ds.Tables["Bill1"].Clear();
-            ds.Tables["Bill1"].Merge(dt2);
-
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load(System.IO.Path.GetDirectoryName(Application.ExecutablePath).ToString() + @"\Reports\rptBill1.rpt");
-            cryRpt.SetDataSource(ds);
-            cryRpt.Refresh();
-            cryRpt.PrintToPrinter(1, true, 0, 0);
-
-
-            DataTable dt1 = new DataTable();
-
-            try
+            DialogResult dialogResult1 = MessageBox.Show("Do you want to print the statement?", "Bill Generation", MessageBoxButtons.YesNo);
+            if (dialogResult1 == DialogResult.Yes)
             {
-                Connections.Instance.OpenConection();
-                SqlCommand cmd1 = new SqlCommand("dbo.GetBillEntry", Connections.Instance.con);
-                cmd1.CommandType = CommandType.StoredProcedure;
-                cmd1.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text.ToString();
-                dt1.Load(cmd1.ExecuteReader());
-                Connections.Instance.CloseConnection();
-                cmd1.Dispose();
+
+                DataTable dt1 = new DataTable();
+
+                try
+                {
+                    Connections.Instance.OpenConection();
+                    SqlCommand cmd1 = new SqlCommand("dbo.GetBillEntry", Connections.Instance.con);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = txtInvoice.Text.ToString();
+                    dt1.Load(cmd1.ExecuteReader());
+                    Connections.Instance.CloseConnection();
+                    cmd1.Dispose();
 
 
+                }
+                catch (Exception ex)
+                { }
+
+                ds.Tables["Bill"].Clear();
+                ds.Tables["Bill"].Merge(dt1);
+
+                ReportDocument cryRpt1 = new ReportDocument();
+                cryRpt1.Load(System.IO.Path.GetDirectoryName(Application.ExecutablePath).ToString() + @"\Reports\BillStatement.rpt");
+                cryRpt1.SetDataSource(ds);
+                cryRpt1.Refresh();
+                cryRpt1.PrintToPrinter(1, true, 0, 0);
             }
-            catch (Exception ex)
-            { }
-
-            ds.Tables["Bill"].Clear();
-            ds.Tables["Bill"].Merge(dt1);
-
-            ReportDocument cryRpt1 = new ReportDocument();
-            cryRpt1.Load(System.IO.Path.GetDirectoryName(Application.ExecutablePath).ToString() + @"\Reports\BillStatement.rpt");
-            cryRpt1.SetDataSource(ds);
-            cryRpt1.Refresh();
-            cryRpt1.PrintToPrinter(1, true, 0, 0);
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)

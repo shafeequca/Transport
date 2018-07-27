@@ -33,3 +33,5 @@ G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptBill1.cs
 G:\SHAFEEQU\Projects\Transport\Transport\obj\x86\Debug\Transport.FixedContainerBill.resources
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptFixedBill.rpt
 G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptFixedBill.cs
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptBill.rpt
+G:\SHAFEEQU\Projects\Transport\Transport\bin\Debug\Reports\rptBill.cs
