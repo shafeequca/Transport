@@ -525,6 +525,7 @@
             this.cboDestination.Name = "cboDestination";
             this.cboDestination.Size = new System.Drawing.Size(348, 21);
             this.cboDestination.TabIndex = 2;
+            this.cboDestination.SelectedIndexChanged += new System.EventHandler(this.cboDestination_SelectedIndexChanged);
             // 
             // label17
             // 

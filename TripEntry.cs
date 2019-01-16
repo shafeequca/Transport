@@ -506,5 +506,10 @@ namespace Transport
         {
 
         }
+
+        private void cboDestination_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboType_SelectedIndexChanged(null, null);
+        }
     }
 }

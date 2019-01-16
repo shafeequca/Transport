@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using System.IO;
+using Microsoft.SqlServer.Management.Common;  
+using Microsoft.SqlServer.Management.Smo; 
 namespace Transport
 {
     public partial class Menu : Form
@@ -303,6 +305,46 @@ namespace Transport
             }
             FixedContainerBill frm = new FixedContainerBill();
             frm.ShowDialog();
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+
+            //try
+            //{
+            //    Connections.Instance.OpenConection();
+            //    //Connections.Instance.ExecuteQueries(@"BACKUP DATABASE Transport TO  DISK = 'F:\Transport_2018-09-05.bak'");
+            //    string FileName = System.Configuration.ConfigurationSettings.AppSettings["Backup_Path"].ToString() + @"\Transport-'+convert(varchar(30),getdate(),113)+'.bak";//" @"BACKUP DATABASE ForBackupTest TO  DISK = '" + System.Configuration.ConfigurationSettings.AppSettings["Backup_Path"].ToString() + @"\'Transport-'+convert(varchar(30),getdate(),113)+'.bak'";
+            //    Connections.Instance.ExecuteQueries(@"USE MASTER;DECLARE @file varchar(5000); SET @file='" + FileName + "'; BACKUP DATABASE Transport TO  DISK = @file");
+            //    MessageBox.Show("Backup file created");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Backup failed : " + ex.Message);
+            //}
+            
+            
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Backup Files|*.bak";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Connections.Instance.OpenConection();
+                    Connections.Instance.ExecuteQueries(@"USE MASTER;RESTORE DATABASE Test FROM  DISK = '" + ofd.FileName + "' WITH REPLACE");
+                    MessageBox.Show("Database restored");
+                
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Restored failed : " + ex.Message);
+                }
+            }
         }
     }
 }

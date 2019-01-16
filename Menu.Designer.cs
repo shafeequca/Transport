@@ -57,11 +57,14 @@
             this.fixedExpenseEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.billGenerationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fixedContainersBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bataReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profitLossToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dieselDetailsVeicleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fixedContainersBillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -150,7 +153,8 @@
             this.fileToolStripMenuItem,
             this.mastersToolStripMenuItem,
             this.transactionsToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.reportsToolStripMenuItem,
+            this.backupRestoreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -291,6 +295,13 @@
             this.billGenerationToolStripMenuItem.Text = "Bill Generation";
             this.billGenerationToolStripMenuItem.Click += new System.EventHandler(this.billGenerationToolStripMenuItem_Click);
             // 
+            // fixedContainersBillToolStripMenuItem
+            // 
+            this.fixedContainersBillToolStripMenuItem.Name = "fixedContainersBillToolStripMenuItem";
+            this.fixedContainersBillToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fixedContainersBillToolStripMenuItem.Text = "Fixed Containers Bill";
+            this.fixedContainersBillToolStripMenuItem.Click += new System.EventHandler(this.fixedContainersBillToolStripMenuItem_Click);
+            // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -322,12 +333,28 @@
             this.dieselDetailsVeicleToolStripMenuItem.Text = "Diesel Details (Veicle)";
             this.dieselDetailsVeicleToolStripMenuItem.Click += new System.EventHandler(this.dieselDetailsVeicleToolStripMenuItem_Click);
             // 
-            // fixedContainersBillToolStripMenuItem
+            // backupRestoreToolStripMenuItem
             // 
-            this.fixedContainersBillToolStripMenuItem.Name = "fixedContainersBillToolStripMenuItem";
-            this.fixedContainersBillToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fixedContainersBillToolStripMenuItem.Text = "Fixed Containers Bill";
-            this.fixedContainersBillToolStripMenuItem.Click += new System.EventHandler(this.fixedContainersBillToolStripMenuItem_Click);
+            this.backupRestoreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backupToolStripMenuItem,
+            this.restoreToolStripMenuItem});
+            this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
+            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.backupRestoreToolStripMenuItem.Text = "Backup && Restore";
+            // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.backupToolStripMenuItem.Text = "Backup";
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            // 
+            // restoreToolStripMenuItem
+            // 
+            this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.restoreToolStripMenuItem.Text = "Restore";
+            this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -387,5 +414,8 @@
         private System.Windows.Forms.ToolStripMenuItem billGenerationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem destinationEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fixedContainersBillToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backupRestoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
     }
 }
